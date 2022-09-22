@@ -1,0 +1,9 @@
+.flex {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.title {
+  text-align: center;
+}

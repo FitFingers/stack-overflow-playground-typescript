@@ -1,0 +1,9 @@
+.listContainer {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  overflow: auto;
+  position: relative;
+  width: 100%;
+  border: 1px solid #e0e0e0;
+}
