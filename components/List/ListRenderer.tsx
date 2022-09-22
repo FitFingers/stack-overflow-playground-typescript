@@ -5,9 +5,10 @@ import ListItem, { ListItemProps } from "./Item";
 
 export declare interface ListRendererProps {
   items: Array<ListItemProps>;
+  moveItem: (index: number, direction: "up" | "down") => void;
 }
 
-const ListRenderer: FC<ListRendererProps> = ({ items }) => {
+const ListRenderer: FC<ListRendererProps> = ({ items, moveItem }) => {
   return (
     <>
       <p>
@@ -19,8 +20,8 @@ const ListRenderer: FC<ListRendererProps> = ({ items }) => {
         </p>
       ) : (
         <ul className={styles.listContainer}>
-          {items.map(({ name }) => (
-            <ListItem name={name} key={name} />
+          {items.map(({ name }, idx) => (
+            <ListItem name={name} key={name} moveItem={moveItem} index={idx} />
           ))}
         </ul>
       )}
