@@ -34,9 +34,29 @@ const List: FC<ListProps> = ({ withForm }) => {
     [listItems]
   );
 
+  // sorts alphabetically, not by index!
+  const sortItems = useCallback(
+    (direction: "asc" | "desc") => {
+      const items = [...listItems];
+      const sortHandlers = {
+        asc: (a: ListItemProps, b: ListItemProps) =>
+          a.name.localeCompare(b.name),
+        desc: (a: ListItemProps, b: ListItemProps) =>
+          b.name.localeCompare(a.name),
+      };
+      items.sort(sortHandlers[direction]);
+      setListItems(items);
+    },
+    [listItems]
+  );
+
   return (
     <>
-      <ListRenderer items={listItems} moveItem={moveItem} />
+      <ListRenderer
+        items={listItems}
+        moveItem={moveItem}
+        sortItems={sortItems}
+      />
       {withForm && <Form onSubmit={addItem} />}
     </>
   );

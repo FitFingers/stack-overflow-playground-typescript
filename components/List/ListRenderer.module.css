@@ -8,3 +8,14 @@
   width: 100%;
   border: 1px solid #e0e0e0;
 }
+
+.buttonRow {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  padding: 0 10px;
+}
+
+.button {
+  margin: 0 5px;
+}
