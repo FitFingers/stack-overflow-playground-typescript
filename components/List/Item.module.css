@@ -1,0 +1,26 @@
+.listItem {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0.5rem 1rem;
+  border-bottom: 1px solid #ccc;
+}
+
+.icon {
+  display: block;
+  margin: 0 1rem;
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10rem;
+  cursor: pointer;
+  background-color: #ccc;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.icon:hover {
+  background-color: #aaa;
+}

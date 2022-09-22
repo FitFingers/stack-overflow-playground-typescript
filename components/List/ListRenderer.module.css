@@ -1,4 +1,5 @@
 .listContainer {
+  padding-left: 0;
   display: flex;
   flex-direction: column;
   flex: 1;
