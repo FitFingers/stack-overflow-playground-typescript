@@ -1,6 +1,7 @@
 import styles from "./ListRenderer.module.css";
 
 import { FC } from "react";
+import { useAutoAnimate } from "@formkit/auto-animate/react";
 import ListItem, { ListItemProps } from "./Item";
 
 export declare interface ListRendererProps {
@@ -14,6 +15,8 @@ const ListRenderer: FC<ListRendererProps> = ({
   sortItems,
   moveItem,
 }) => {
+  const [parent] = useAutoAnimate();
+
   return (
     <>
       <p>
@@ -27,17 +30,19 @@ const ListRenderer: FC<ListRendererProps> = ({
           Sort Desc
         </button>
       </div>
-      {!items.length ? (
-        <p>
-          <em>There are no items. Get started using the form below.</em>
-        </p>
-      ) : (
-        <ul className={styles.listContainer}>
-          {items.map(({ name }, idx) => (
+      <ul ref={parent} className={styles.listContainer}>
+        {!items.length ? (
+          <ListItem
+            name="There are no items. Get started using the form below."
+            moveItem={moveItem}
+            index={0}
+          />
+        ) : (
+          items.map(({ name }, idx) => (
             <ListItem name={name} key={name} moveItem={moveItem} index={idx} />
-          ))}
-        </ul>
-      )}
+          ))
+        )}
+      </ul>
     </>
   );
 };
