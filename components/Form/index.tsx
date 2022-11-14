@@ -1,9 +1,9 @@
 import styles from "./Form.module.css";
 
 import { FC, useCallback, useReducer } from "react";
-import TextInput from "../Input/Text";
+import { ListItemProps } from "components/List/Item";
+import TextInput from "components/Input/Text";
 import FormSubmit from "./Submit";
-import { ListItemProps } from "../List/Item";
 
 export declare interface FormProps {
   onSubmit: (newItem: ListItemProps) => void;
